@@ -1,37 +1,60 @@
 package vn.chithanh.models;
 
 import java.io.Serializable;
+import java.sql.Date;
 
-public class UserModel implements Serializable{
-	
+public class UserModel implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
-	private int id;
-	private String username;
-	private String email;
-	private String password;
-	private String fullname;
-	private String images;
-	
-	public UserModel() {
-		
-	}
-	
-	public UserModel(int id, String username, String email, String password, String fullname, String images) {
+
+    private int id;
+    private String username;
+    private String password;
+    private String fullName;
+    private String email;
+    private String images;
+    private int roleId;
+    private String phone;
+    private Date createDate;
+    
+    public UserModel() {}
+
+	public UserModel(int id, String username, String password, String fullName, String email, String images, int roleId,
+			String phone, Date createDate) {
+		super();
 		this.id = id;
 		this.username = username;
-		this.email = email;
 		this.password = password;
-		this.fullname = fullname;
+		this.fullName = fullName;
+		this.email = email;
 		this.images = images;
+		this.roleId = roleId;
+		this.phone = phone;
+		this.createDate = createDate;
 	}
 	
-	public UserModel(String username, String email, String password, String fullname, String images) {
+	public UserModel(String username, String password, String fullName, String email, String images, int roleId,
+			String phone, Date createDate) {
+		super();
 		this.username = username;
-		this.email = email;
 		this.password = password;
-		this.fullname = fullname;
+		this.fullName = fullName;
+		this.email = email;
 		this.images = images;
+		this.roleId = roleId;
+		this.phone = phone;
+		this.createDate = createDate;
+	}
+	
+
+	public UserModel(String username, String password, String fullName, String email, String images, String phone) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.email = email;
+		this.images = images;
+		this.phone = phone;
 	}
 
 	public int getId() {
@@ -50,14 +73,6 @@ public class UserModel implements Serializable{
 		this.username = username;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -66,12 +81,20 @@ public class UserModel implements Serializable{
 		this.password = password;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getImages() {
@@ -82,10 +105,35 @@ public class UserModel implements Serializable{
 		this.images = images;
 	}
 
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
 	@Override
 	public String toString() {
-		return "UserModel [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", fullname=" + fullname + ", images=" + images + "]";
+		return "UserModel [id=" + id + ", username=" + username + ", password=" + password + ", fullName=" + fullName
+				+ ", email=" + email + ", images=" + images + ", roleId=" + roleId + ", phone=" + phone
+				+ ", createDate=" + createDate + "]";
 	}
-	
+
 }
