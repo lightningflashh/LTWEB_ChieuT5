@@ -15,6 +15,10 @@ public interface IUserService {
 	boolean register(String username, String password, String fullName, String email, 
 			String images, String phone);
 	
+	boolean register(String username, String password, String fullName, String email, String code);
+	
+	void updateStatus(UserModel user);
+	
 	boolean checkExistEmail(String email);
 	
 	boolean checkExistUsername(String username);
@@ -22,5 +26,7 @@ public interface IUserService {
 	boolean checkExistPhone(String phone);
 	
 	boolean updatePassword(String username, String newPassword);
+	
+	boolean update(UserModel user);
 
 }

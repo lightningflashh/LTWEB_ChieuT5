@@ -16,8 +16,8 @@ public class UserModel implements Serializable {
     private int roleId;
     private String phone;
     private Date createDate;
-    
-    public UserModel() {}
+    private int status;
+    private String code;
 
 	public UserModel(int id, String username, String password, String fullName, String email, String images, int roleId,
 			String phone, Date createDate) {
@@ -55,6 +55,28 @@ public class UserModel implements Serializable {
 		this.email = email;
 		this.images = images;
 		this.phone = phone;
+	}
+	
+
+	public UserModel(String username, String password, String fullName, String email, int roleId, int status,
+			String code) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.email = email;
+		this.roleId = roleId;
+		this.status = status;
+		this.code = code;
+	}
+	
+
+	public UserModel(String username, String fullName, String email, String code) {
+		super();
+		this.username = username;
+		this.fullName = fullName;
+		this.email = email;
+		this.code = code;
 	}
 
 	public int getId() {
@@ -129,11 +151,20 @@ public class UserModel implements Serializable {
 		this.createDate = createDate;
 	}
 
-	@Override
-	public String toString() {
-		return "UserModel [id=" + id + ", username=" + username + ", password=" + password + ", fullName=" + fullName
-				+ ", email=" + email + ", images=" + images + ", roleId=" + roleId + ", phone=" + phone
-				+ ", createDate=" + createDate + "]";
+	public int getStatus() {
+		return status;
 	}
 
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+	
 }

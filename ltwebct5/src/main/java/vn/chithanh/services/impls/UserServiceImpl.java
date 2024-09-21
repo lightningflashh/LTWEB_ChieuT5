@@ -79,24 +79,46 @@ public class UserServiceImpl implements IUserService {
 		return userDAO.updatePassword(username, newPassword);
 	}
 	
-	public static void main(String[] args) {
-	    UserServiceImpl userService = new UserServiceImpl();
 
-	    boolean isRegistered = userService.register(
-	        "user",    
-	        "123", 
-	        "Nguyen Van Binh",     
-	        "nvb@example.com", 
-	        "path/to/image4.jpg",          
-	        "125-456-7890"  
-	    );
-
-	  
-	    if (isRegistered) {
-	        System.out.println("User registered successfully!");
-	    } else {
-	        System.out.println("Username already exists. Registration failed.");
+	@Override
+	public boolean register(String username, String password, String fullName, String email, String code) {
+		if (this.checkExistUsername(username)) {
+	        return false;
 	    }
+		
+		if (this.checkExistEmail(email)) {
+			return false;
+		}
+	  
+	    userDAO.insertRegister(new UserModel(username, password, fullName, email, 3, 0, code));
+
+	    return true;
+	}
+
+	@Override
+	public void updateStatus(UserModel user) {
+		userDAO.updateStatus(user);
+	}
+	
+	@Override
+	public boolean update(UserModel user) {
+		return userDAO.update(user);
+	}
+	
+	public static void main(String[] args) {
+//	    UserServiceImpl userService = new UserServiceImpl();
+//
+//	    UserModel user = userService.findOne("userK");
+//	    
+//	    user.setFullName("Nguyễn Thị A");
+//	    
+//	    
+//	    boolean check = userService.update(user);
+//	    if (check) {
+//	        System.out.println("Successfully!");
+//	    } else {
+//	        System.out.println("Failed.");
+//	    }
 
 	}
 

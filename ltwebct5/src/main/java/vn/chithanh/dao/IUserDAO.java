@@ -12,12 +12,13 @@ public interface IUserDAO {
 	
 	void insert(UserModel user);
 	
-//	UserModel login(String username, String password);
-	
 	UserModel findByUsername(String username);
+	
 	UserModel findOne(String username);
 	
-//	boolean register(String username, String password, String fullName, String email, String images, int roleId, String phone);
+	void insertRegister(UserModel user);
+	
+	void updateStatus(UserModel user);
 	
 	boolean checkExistUsername(String username);
 	
@@ -26,5 +27,7 @@ public interface IUserDAO {
 	boolean checkExistPhone(String phone);
 	
 	boolean updatePassword(String username, String newPassword);
+	
+	boolean update(UserModel user);
 	
 }
