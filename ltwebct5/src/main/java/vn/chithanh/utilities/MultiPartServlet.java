@@ -3,7 +3,6 @@ package vn.chithanh.utilities;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.UUID;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;

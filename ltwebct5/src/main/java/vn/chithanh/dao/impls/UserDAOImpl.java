@@ -216,10 +216,6 @@ public class UserDAOImpl extends DBConnectMySQL implements IUserDAO {
 		}
 		
 	}
-	
-	public static void main(String[] args) {
-
-	}
 
 	@Override
 	public boolean update(UserModel user) {
